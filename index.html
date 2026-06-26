@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat Ayipp Tersayang 💌</title>
+    <style>
+        body {
+            background-color: #ffe6f2; /* Warna background pink pastel */
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.2);
+            max-width: 350px;
+        }
+        h1 { color: #ff4d94; font-size: 26px; margin-bottom: 10px; }
+        p { color: #555; font-size: 16px; line-height: 1.6; }
+        button {
+            background-color: #ff66a3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 102, 163, 0.4);
+        }
+        button:hover { background-color: #ff3385; transform: scale(1.05); }
+        #pesan-rahasia { display: none; } /* Disembunyikan dulu */
+        .ikon { font-size: 60px; margin: 15px 0; animation: bounce 2s infinite; }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-7px);}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- KOTAK PERTAMA (HALAMAN DEPAN) -->
+    <div class="container" id="box-awal">
+        <h1>Haloo Ayipp Sayanggg! 👋</h1>
+        <p>Ada paket spesial nih buat pacarku yang paling gemesin.</p>
+        <div class="ikon">📦</div>
+        <button onclick="bukaKado()">Buka Paketnya!</button>
+    </div>
+
+    <!-- KOTAK KEDUA (SETELAH KADO DIBUKA) -->
+    <div class="container" id="pesan-rahasia">
+        <h1>SURPRISEEE! 🎉</h1>
+        <div class="ikon">👩‍❤️‍👨</div>
+        <p id="teks-berubah">Walaupun kita lagi jauhh dan gabisa ketemu, semoga kamu gapernah ngerasa jauh sama aku yaa! aku selalu disini buat kamu.. Semangat terus yaa harinya, love youuu cayangg! ✨</p>
+        <button onclick="gantiTeks()">Ayo klik lagi hihii</button>
+    </div>
+
+    <script>
+        let klikKe = 0;
+        
+        // Fungsi untuk menyembunyikan kado dan memunculkan pesan
+        function bukaKado() {
+            document.getElementById('box-awal').style.display = 'none';
+            document.getElementById('pesan-rahasia').style.display = 'block';
+        }
+
+        // Fungsi untuk mengganti teks saat tombol diklik lagi
+        function gantiTeks() {
+            let teks = document.getElementById('teks-berubah');
+            let tombol = document.querySelector('#pesan-rahasia button');
+            
+            if(klikKe === 0) {
+                teks.innerHTML = "Kamu tau gak bedanya kamu sama coklat? <br><br> gaadaa, soalnya sama-sama bisa bikin aku seneng tiapp hariii! 🙈";
+                tombol.innerText = "Lagi dong!";
+                klikKe++;
+            } else if(klikKe === 1) {
+                teks.innerHTML = "Sehat-sehat ya cayangnya aku! Biar kita bisa cepat ketemu dan jalan bareng lagi. 😘";
+                tombol.innerText = "Selesai ✨";
+                klikKe++;
+            } else {
+                teks.innerHTML = "Udah ah gombalnya, nanti kamu makin kangen! I love you sooo much! 💕";
+                tombol.style.display = 'none'; // Tombolnya hilang setelah pesan terakhir
+            }
+        }
+    </script>
+</body>
+</html>
