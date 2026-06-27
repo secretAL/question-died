@@ -3,96 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buat Ayipp Tersayang 💌</title>
+    <title>Pertanyaan Penting Buat Ayip! 🧐</title>
     <style>
         body {
-            background-color: #ffe6f2; /* Warna background pink pastel */
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            text-align: center;
+            background-color: #e0f2fe; /* Ganti jadi Biru Sky Pastel Lembut */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            overflow: hidden;
         }
         .container {
+            width: 340px;
             background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.2);
-            max-width: 350px;
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.15); /* Bayangan soft blue */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 420px;
         }
-        h1 { color: #ff4d94; font-size: 26px; margin-bottom: 10px; }
-        p { color: #555; font-size: 16px; line-height: 1.6; }
-        button {
-            background-color: #ff66a3;
-            color: white;
-            border: none;
+        h1 {
+            color: #0369a1; /* Tulisan biru tua estetik */
+            font-size: 24px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        p {
+            color: #475569; /* Warna teks abu kebiruan */
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+        .cat-icon {
+            font-size: 80px;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+        
+        /* TOMBOL PILIHAN AWAL */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
+            margin-top: auto;
+        }
+        .btn-pilihan {
             padding: 12px 25px;
             font-size: 16px;
-            border-radius: 25px;
+            border-radius: 50px;
+            border: none;
             cursor: pointer;
-            margin-top: 20px;
             font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(255, 102, 163, 0.4);
+            flex: 1;
         }
-        button:hover { background-color: #ff3385; transform: scale(1.05); }
-        #pesan-rahasia { display: none; } /* Disembunyikan dulu */
-        .ikon { font-size: 60px; margin: 15px 0; animation: bounce 2s infinite; }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-15px);}
-            60% {transform: translateY(-7px);}
+        .btn-iya {
+            background: linear-gradient(135deg, #38bdf8, #0284c7); /* Tombol gradasi biru cerah */
+            color: white;
+            box-shadow: 0 5px 15px rgba(2, 132, 199, 0.3);
+        }
+        .btn-ngga {
+            background-color: #f1f5f9;
+            color: #94a3b8;
+        }
+        .btn-iya:hover { transform: scale(1.08); }
+        .btn-ngga:hover { transform: scale(0.92); }
+
+        /* TOMBOL WHATSAPP */
+        .btn-wa {
+            background-color: #25D366; /* Tetap hijau ciri khas WA */
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            margin-top: auto;
+            transition: 0.3s;
+        }
+        .btn-wa:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        /* ANIMASI JOGET KUCING */
+        .anim-happy {
+            animation: happyDance 0.6s ease infinite alternate;
+        }
+        @keyframes happyDance {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-15px) scale(1.05) rotate(5deg); }
+        }
+        .anim-sad {
+            animation: sadShake 0.5s ease infinite;
+        }
+        @keyframes sadShake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px) rotate(-3deg); }
+            40%, 80% { transform: translateX(6px) rotate(3deg); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- KOTAK PERTAMA (HALAMAN DEPAN) -->
-    <div class="container" id="box-awal">
-        <h1>Haloo Ayipp Sayanggg! 👋</h1>
-        <p>Ada paket spesial nih buat pacarku yang paling gemesin.</p>
-        <div class="ikon">📦</div>
-        <button onclick="bukaKado()">Buka Paketnya!</button>
-    </div>
+    <div class="container" id="main-card">
+        <div id="konten-pertanyaan" class="fade-in" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+            <h1>Cayaangg.. Kamuuu sayang aku ga? 🥺👉👈</h1>
+            <div class="cat-icon anim-happy">😸</div>
+            <div class="btn-group">
+                <button class="btn-pilihan btn-iya" onclick="jawab('iya')">Iyaa ihh! 🥰</button>
+                <button class="btn-pilihan btn-ngga" onclick="jawab('ngga')">Ngga nih</button>
+            </div>
+        </div>
 
-    <!-- KOTAK KEDUA (SETELAH KADO DIBUKA) -->
-    <div class="container" id="pesan-rahasia">
-        <h1>SURPRISEEE! 🎉</h1>
-        <div class="ikon">👩‍❤️‍👨</div>
-        <p id="teks-berubah">Walaupun kita lagi jauhh dan gabisa ketemu, semoga kamu gapernah ngerasa jauh sama aku yaa! aku selalu disini buat kamu.. Semangat terus yaa harinya, love youuu cayangg! ✨</p>
-        <button onclick="gantiTeks()">Ayo klik lagi hihii</button>
+        <div id="konten-iya" class="fade-in" style="display: none; flex-direction: column; align-items: center; width: 100%;">
+            <h1>Yippieee!! 🎉</h1>
+            <div class="cat-icon anim-happy">😻✨</div>
+            <p>Ayip sayang Ayaaa! ❤️<br>Sesuai janji, nanti Aya kasih 5 things yang Ayip minta dehh hihiii...~</p>
+            <a href="https://wa.me/6285745695068?text=Ayaaa%20aku%20sayang%20banget%20sama%20kamu!%20Mana%20nih%20janji%205%20things-nya?%20Hahaha%20%F0%9F%A5%B2%E2%9D%A4%EF%B8%8F" target="_blank" class="btn-wa">Ayo sini chat ayaa, coba bilang lagi klo ayip sayang ma aya 🧸</a>
+        </div>
+
+        <div id="konten-ngga" class="fade-in" style="display: none; flex-direction: column; align-items: center; width: 100%;">
+            <h1>Ih Kok Ngga?! 😤💢</h1>
+            <div class="cat-icon anim-sad">😿💔</div>
+            <p>Wahh kamu ngga sayang aku ternyata.. cepet chat aku!! aku harus marah marah sama kamu!</p>
+            <a href="https://wa.me/6285745695068?text=Ayaaa%20maaf%20tadi%20aku%20salah%20pencet%20ngga%20sayang,%20jangan%20marah%20yaaa%20%F0%9F%A5%BA%E2%9D%A4%EF%B8%8F" target="_blank" class="btn-wa">Hubungi Aya buat dimarahin! 😤🔥</a>
+        </div>
     </div>
 
     <script>
-        let klikKe = 0;
-        
-        // Fungsi untuk menyembunyikan kado dan memunculkan pesan
-        function bukaKado() {
-            document.getElementById('box-awal').style.display = 'none';
-            document.getElementById('pesan-rahasia').style.display = 'block';
-        }
-
-        // Fungsi untuk mengganti teks saat tombol diklik lagi
-        function gantiTeks() {
-            let teks = document.getElementById('teks-berubah');
-            let tombol = document.querySelector('#pesan-rahasia button');
-            
-            if(klikKe === 0) {
-                teks.innerHTML = "Kamu tau gak bedanya kamu sama coklat? <br><br> gaadaa, soalnya sama-sama bisa bikin aku seneng tiapp hariii! 🙈";
-                tombol.innerText = "Lagi dong!";
-                klikKe++;
-            } else if(klikKe === 1) {
-                teks.innerHTML = "Sehat-sehat ya cayangnya aku! Biar kita bisa cepat ketemu dan jalan bareng lagi. 😘";
-                tombol.innerText = "Selesai ✨";
-                klikKe++;
-            } else {
-                teks.innerHTML = "Udah ah gombalnya, nanti kamu makin kangen! I love you sooo much! 💕";
-                tombol.style.display = 'none'; // Tombolnya hilang setelah pesan terakhir
+        function jawab(pilihan) {
+            document.getElementById('konten-pertanyaan').style.display = 'none';
+            if (pilihan === 'iya') {
+                document.getElementById('konten-iya').style.display = 'flex';
+            } else if (pilihan === 'ngga') {
+                document.getElementById('konten-ngga').style.display = 'flex';
             }
         }
     </script>
+
 </body>
 </html>
