@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertanyaan Penting Buat Ayip! 🧐</title>
+    <style>
+        body {
+            background-color: #e0f2fe; /* Ganti jadi Biru Sky Pastel Lembut */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            width: 340px;
+            background: white;
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.15); /* Bayangan soft blue */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 420px;
+        }
+        h1 {
+            color: #0369a1; /* Tulisan biru tua estetik */
+            font-size: 24px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        p {
+            color: #475569; /* Warna teks abu kebiruan */
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+        .cat-icon {
+            font-size: 80px;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+        
+        /* TOMBOL PILIHAN AWAL */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
+            margin-top: auto;
+        }
+        .btn-pilihan {
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            flex: 1;
+        }
+        .btn-iya {
+            background: linear-gradient(135deg, #38bdf8, #0284c7); /* Tombol gradasi biru cerah */
+            color: white;
+            box-shadow: 0 5px 15px rgba(2, 132, 199, 0.3);
+        }
+        .btn-ngga {
+            background-color: #f1f5f9;
+            color: #94a3b8;
+        }
+        .btn-iya:hover { transform: scale(1.08); }
+        .btn-ngga:hover { transform: scale(0.92); }
+
+        /* TOMBOL WHATSAPP */
+        .btn-wa {
+            background-color: #25D366; /* Tetap hijau ciri khas WA */
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            margin-top: auto;
+            transition: 0.3s;
+        }
+        .btn-wa:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        /* ANIMASI JOGET KUCING */
+        .anim-happy {
+            animation: happyDance 0.6s ease infinite alternate;
+        }
+        @keyframes happyDance {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-15px) scale(1.05) rotate(5deg); }
+        }
+        .anim-sad {
+            animation: sadShake 0.5s ease infinite;
+        }
+        @keyframes sadShake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px) rotate(-3deg); }
+            40%, 80% { transform: translateX(6px) rotate(3deg); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="main-card">
+        <div id="konten-pertanyaan" class="fade-in" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+            <h1>Cayaangg.. Kamuuu sayang aku ga? 🥺👉👈</h1>
+            <div class="cat-icon anim-happy">😸</div>
+            <div class="btn-group">
+                <button class="btn-pilihan btn-iya" onclick="jawab('iya')">Iyaa ihh! 🥰</button>
+                <button class="btn-pilihan btn-ngga" onclick="jawab('ngga')">Ngga nih</button>
+            </div>
+        </div>
+
+        <div id="konten-iya" class="fade-in" style="display: none; flex-direction: column; align-items: center; width: 100%;">
+            <h1>Yippieee!! 🎉</h1>
+            <div class="cat-icon anim-happy">😻✨</div>
+            <p>Ayip sayang Ayaaa! ❤️<br>Sesuai janji, nanti Aya kasih 5 things yang Ayip minta dehh hihiii...~</p>
+            <a href="https://wa.me/6285745695068?text=Ayaaa%20aku%20sayang%20banget%20sama%20kamu!%20Mana%20nih%20janji%205%20things-nya?%20Hahaha%20%F0%9F%A5%B2%E2%9D%A4%EF%B8%8F" target="_blank" class="btn-wa">Ayo sini chat ayaa, coba bilang lagi klo ayip sayang ma aya 🧸</a>
+        </div>
+
+        <div id="konten-ngga" class="fade-in" style="display: none; flex-direction: column; align-items: center; width: 100%;">
+            <h1>Ih Kok Ngga?! 😤💢</h1>
+            <div class="cat-icon anim-sad">😿💔</div>
+            <p>Wahh kamu ngga sayang aku ternyata.. cepet chat aku!! aku harus marah marah sama kamu!</p>
+            <a href="https://wa.me/6285745695068?text=Ayaaa%20maaf%20tadi%20aku%20salah%20pencet%20ngga%20sayang,%20jangan%20marah%20yaaa%20%F0%9F%A5%BA%E2%9D%A4%EF%B8%8F" target="_blank" class="btn-wa">Hubungi Aya buat dimarahin! 😤🔥</a>
+        </div>
+    </div>
+
+    <script>
+        function jawab(pilihan) {
+            document.getElementById('konten-pertanyaan').style.display = 'none';
+            if (pilihan === 'iya') {
+                document.getElementById('konten-iya').style.display = 'flex';
+            } else if (pilihan === 'ngga') {
+                document.getElementById('konten-ngga').style.display = 'flex';
+            }
+        }
+    </script>
+
+</body>
+</html>
